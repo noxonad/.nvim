@@ -1,0 +1,3 @@
+return {
+  "antoyo/vim-licenses",
+}
