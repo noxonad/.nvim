@@ -2,7 +2,7 @@ local k = vim.keymap
 local opts = { noremap = true, silent = true }
 
 -- Don't affect the register memory when deleting with x
-k.set("n", "x", '"_x')
+-- k.set("n", "x", '"_x')
 
 -- Increment/Decrement numbers
 k.set("n", "+", "<C-a>")
@@ -57,6 +57,10 @@ k.set("v", "<C-Down>", ":m .+1<CR>", opts)
 k.set("v", "<C-Up>", ":m .-2<CR>", opts)
 k.set("x", "<C-Down>", ":move '>+1<CR>gv-gv", opts)
 k.set("x", "<C-Up>", ":move '<-2<CR>gv-gv", opts)
+
+-- Treesitter folding
+k.set("n", "<leader><", "<Cmd>foldclose<CR>", { desc = "Fold code" })
+k.set("n", "<leader>>", "<Cmd>foldopen<CR>", { desc = "Unfold code" })
 
 -- Diagnostics
 k.set("n", "<C-j>", function()
