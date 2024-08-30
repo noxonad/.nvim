@@ -62,6 +62,14 @@ k.set("x", "<C-Up>", ":move '<-2<CR>gv-gv", opts)
 k.set("n", "<leader><", "<Cmd>foldclose<CR>", { desc = "Fold code" })
 k.set("n", "<leader>>", "<Cmd>foldopen<CR>", { desc = "Unfold code" })
 
+-- Rust specific
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "rs", "rust" },
+  callback = function()
+    k.set("n", "<leader>ruw", "a.unwrap()<ESC>")
+  end,
+})
+
 -- Diagnostics
 k.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
