@@ -5,6 +5,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    require("refactoring").setup()
+    refactoring = require("refactoring")
+
+    refactoring.setup({})
+
+    local k = vim.keymap
+
+    -- k.set("n", "<leader>rv", "<CMD>rename_variable()<CR>", {})
   end,
 }

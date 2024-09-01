@@ -64,9 +64,13 @@ k.set("n", "<leader>>", "<Cmd>foldopen<CR>", { desc = "Unfold code" })
 
 -- Rust specific
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "rs", "rust" },
+  pattern = { "rust" },
   callback = function()
     k.set("n", "<leader>ruw", "a.unwrap()<ESC>")
+    k.set("n", "<leader>rlc", "a.to_lowercase()<ESC>")
+    k.set("n", "<leader>ruc", "a.to_uppercase()<ESC>")
+    k.set("n", "<leader>rts", "a.to_string()<ESC>")
+    k.set("n", "<leader>ras", "a.as_string()<ESC>")
   end,
 })
 
