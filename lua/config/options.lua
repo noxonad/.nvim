@@ -34,6 +34,9 @@ vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 vim.g.deprecation_warnings = true
 
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
