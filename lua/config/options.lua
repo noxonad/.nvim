@@ -5,7 +5,7 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.o.statuscolumn = "%s %l %r "
+vim.o.statuscolumn = "%C%s %l %r "
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
