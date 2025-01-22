@@ -1,9 +1,6 @@
 local k = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Don't affect the register memory when deleting with x
--- k.set("n", "x", '"_x')
-
 -- Increment/Decrement numbers
 k.set("n", "+", "<C-a>", { desc = "Increment a number" })
 k.set("n", "-", "<C-x>", { desc = "Decrement a number" })
@@ -17,7 +14,7 @@ k.set("n", "dbw", 'vb"_d')
 -- Select all
 k.set("n", "<C-a>", "gg<S-v>G")
 
--- Disable continuations
+-- Create new line without comments
 k.set("n", "<leader>o", "o<Esc>^Da", opts)
 k.set("n", "<leader>O", "O<Esc>^Da", opts)
 
@@ -25,9 +22,11 @@ k.set("n", "<leader>O", "O<Esc>^Da", opts)
 k.set("n", "T", ":tabedit<Return>")
 k.set("n", "<tab>", ":tabnext<Return>", opts)
 k.set("n", "<s-tab>", ":tabprev<Return>", opts)
+
 -- Split window
 k.set("n", "ss", ":split<Return>", opts)
 k.set("n", "sv", ":vsplit<Return>", opts)
+
 -- Move window
 k.set("n", "sh", "<C-w>h")
 k.set("n", "sk", "<C-w>k")
@@ -80,7 +79,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Terminal on the bottom on the screen and split vertically
+vim.api.nvim_set_keymap("n", "<C-t>", ":split<CR>:resize 10<CR>:terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-'>", ":vsplit<CR>:terminal<CR>", { noremap = true, silent = true })
+
 -- Diagnostics
-k.set("n", "<C-j>", function()
+k.set("n", "<leader><C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)

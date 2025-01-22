@@ -41,6 +41,9 @@ vim.opt.linebreak = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
@@ -50,6 +53,10 @@ vim.opt.formatoptions:append({ "r" })
 
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
+
+vim.g.lazyvim_python_ruff = "ruff"
+
+vim.g.lazyvim_prettier_needs_config = false
 
 if vim.fn.has("nvim-0.8") == 1 then
   vim.opt.cmdheight = 0
