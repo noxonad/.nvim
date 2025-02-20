@@ -79,9 +79,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable default terminal keymaps
+-- since I'm using another terminal
+k.del("n", "<leader>fT")
+k.del("n", "<leader>ft")
+k.del("n", "<C-/>")
+k.del("n", "<C-_>")
+k.del("t", "<C-/>")
+k.del("t", "<C-_>")
+
+-- Set floating terminal keybindings
+k.set("n", "<C-/>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+k.set("t", "<C-/>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+
 -- Terminal on the bottom on the screen and split vertically
-vim.api.nvim_set_keymap("n", "<C-t>", ":split<CR>:resize 10<CR>:terminal<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-'>", ":vsplit<CR>:terminal<CR>", { noremap = true, silent = true })
+k.set("n", "<C-t>", ":split<CR>:resize 10<CR>:terminal<CR>", { noremap = true, silent = true })
+k.set("n", "<C-'>", ":vsplit<CR>:terminal<CR>", { noremap = true, silent = true })
+k.set("t", "<ESC>", "<C-\\><C-n>", { desc = "Exit terminal insert mode", noremap = true, silent = true })
 
 -- Diagnostics
 k.set("n", "<leader><C-j>", function()
