@@ -95,7 +95,7 @@ k.set("t", "<C-/>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 -- Terminal on the bottom on the screen and split vertically
 k.set("n", "<C-t>", ":split<CR>:resize 10<CR>:terminal<CR>", { noremap = true, silent = true })
 k.set("n", "<C-'>", ":vsplit<CR>:terminal<CR>", { noremap = true, silent = true })
-k.set("t", "<ESC>", "<C-\\><C-n>", { desc = "Exit terminal insert mode", noremap = true, silent = true })
+k.set("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit terminal insert mode", noremap = true, silent = true })
 
 -- Diagnostics
 k.set("n", "<leader><C-j>", function()
